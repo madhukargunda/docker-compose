@@ -1,0 +1,16 @@
+version: '3'
+
+services:        
+    hsapi:
+        image: madhukargunda/spring-boot-hsapi
+        restart: always
+
+    nginx:
+        image: nginx
+        volumes:
+            - ./nginx.conf:/etc/nginx/nginx.conf
+        ports:
+            - 80:80
+        restart: always
+        depends_on:
+            - app

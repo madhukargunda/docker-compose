@@ -1,0 +1,23 @@
+version: '3'
+
+services:
+    reverseproxy:
+        image: madhukargunda/myreverseproxy
+        ports:
+            - 8083:8080
+            - 8084:8081
+        restart: always
+        volumes:
+            - ./nginx.conf:/etc/nginx/nginx.conf
+
+    nginx:
+        image: nginx:alpine
+        restart: always
+        depends_on:
+            - reverseproxy
+
+    apache:       
+        image: httpd:alpine
+        restart: always
+        depends_on:
+            - reverseproxy

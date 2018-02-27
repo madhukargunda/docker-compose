@@ -1,0 +1,216 @@
+[
+    {
+        "Id": "40b2e05f488315e50fc57468a6be08247f51041868223b1e138035381bcc3567",
+        "Created": "2018-02-10T04:52:42.904947224Z",
+        "Path": "/bin/bash",
+        "Args": [
+            "/wrapper.sh"
+        ],
+        "State": {
+            "Status": "running",
+            "Running": true,
+            "Paused": false,
+            "Restarting": false,
+            "OOMKilled": false,
+            "Dead": false,
+            "Pid": 29124,
+            "ExitCode": 0,
+            "Error": "",
+            "StartedAt": "2018-02-10T07:24:52.047922866Z",
+            "FinishedAt": "2018-02-10T07:24:47.374594698Z"
+        },
+        "Image": "sha256:5e91a417ea8df75a28494d9d40104284c51b9599b4fd1d880c95441d8932b2b2",
+        "ResolvConfPath": "/var/lib/docker/containers/40b2e05f488315e50fc57468a6be08247f51041868223b1e138035381bcc3567/resolv.conf",
+        "HostnamePath": "/var/lib/docker/containers/40b2e05f488315e50fc57468a6be08247f51041868223b1e138035381bcc3567/hostname",
+        "HostsPath": "/var/lib/docker/containers/40b2e05f488315e50fc57468a6be08247f51041868223b1e138035381bcc3567/hosts",
+        "LogPath": "/var/lib/docker/containers/40b2e05f488315e50fc57468a6be08247f51041868223b1e138035381bcc3567/40b2e05f488315e50fc57468a6be08247f51041868223b1e138035381bcc3567-json.log",
+        "Name": "/g00glen00b_spring-boot-jpa-docker-webapp_1",
+        "RestartCount": 0,
+        "Driver": "overlay2",
+        "Platform": "linux",
+        "MountLabel": "",
+        "ProcessLabel": "",
+        "AppArmorProfile": "",
+        "ExecIDs": null,
+        "HostConfig": {
+            "Binds": [],
+            "ContainerIDFile": "",
+            "LogConfig": {
+                "Type": "json-file",
+                "Config": {}
+            },
+            "NetworkMode": "g00glen00b_default",
+            "PortBindings": {
+                "8080/tcp": [
+                    {
+                        "HostIp": "",
+                        "HostPort": "8082"
+                    }
+                ]
+            },
+            "RestartPolicy": {
+                "Name": "",
+                "MaximumRetryCount": 0
+            },
+            "AutoRemove": false,
+            "VolumeDriver": "",
+            "VolumesFrom": [],
+            "CapAdd": null,
+            "CapDrop": null,
+            "Dns": null,
+            "DnsOptions": null,
+            "DnsSearch": null,
+            "ExtraHosts": null,
+            "GroupAdd": null,
+            "IpcMode": "shareable",
+            "Cgroup": "",
+            "Links": null,
+            "OomScoreAdj": 0,
+            "PidMode": "",
+            "Privileged": false,
+            "PublishAllPorts": false,
+            "ReadonlyRootfs": false,
+            "SecurityOpt": null,
+            "UTSMode": "",
+            "UsernsMode": "",
+            "ShmSize": 67108864,
+            "Runtime": "runc",
+            "ConsoleSize": [
+                0,
+                0
+            ],
+            "Isolation": "",
+            "CpuShares": 0,
+            "Memory": 0,
+            "NanoCpus": 0,
+            "CgroupParent": "",
+            "BlkioWeight": 0,
+            "BlkioWeightDevice": null,
+            "BlkioDeviceReadBps": null,
+            "BlkioDeviceWriteBps": null,
+            "BlkioDeviceReadIOps": null,
+            "BlkioDeviceWriteIOps": null,
+            "CpuPeriod": 0,
+            "CpuQuota": 0,
+            "CpuRealtimePeriod": 0,
+            "CpuRealtimeRuntime": 0,
+            "CpusetCpus": "",
+            "CpusetMems": "",
+            "Devices": null,
+            "DeviceCgroupRules": null,
+            "DiskQuota": 0,
+            "KernelMemory": 0,
+            "MemoryReservation": 0,
+            "MemorySwap": 0,
+            "MemorySwappiness": null,
+            "OomKillDisable": false,
+            "PidsLimit": 0,
+            "Ulimits": null,
+            "CpuCount": 0,
+            "CpuPercent": 0,
+            "IOMaximumIOps": 0,
+            "IOMaximumBandwidth": 0
+        },
+        "GraphDriver": {
+            "Data": {
+                "LowerDir": "/var/lib/docker/overlay2/5578cdd149aa7da23a9e7698344da2b2a103e95bd7aa007eb4f985ffa4f6ee2b-init/diff:/var/lib/docker/overlay2/4587ea29477af9c5a418f58ebe527b5896ab85f201ca090ade4f36caa549e2fe/diff:/var/lib/docker/overlay2/0b437d7e9119847a9c0883d7a65b699005e15e488e28a473866bf73764e1c482/diff:/var/lib/docker/overlay2/c3dfa5bc6ca145fbd414646d504d2def974a2d5db989647c8ea18ad73ae6bf21/diff:/var/lib/docker/overlay2/b8327acc10fa1f0408ea5017ff355b9efd73d5bbd8439ec349dc5887c87f8f98/diff:/var/lib/docker/overlay2/f96a5712123ead5d8dbcebb88a6a5ffd2922124ff0d23e18f3b9763e42be34c6/diff:/var/lib/docker/overlay2/ecb755e1353d265b104bd339c5d6ab9a30f0723518fa410daae134dc68cb16f8/diff:/var/lib/docker/overlay2/13791fb67d5636a524387fc0b291e93650f374171171d6ad868e405e5c402189/diff:/var/lib/docker/overlay2/662ad6803d018dbd8a8fe5b2399a8cc6884fd87ed51f190bf4f939f9a57bcd52/diff:/var/lib/docker/overlay2/c83fa74adfe5da06df33f601e4b05c2ba83b73a90af2a720ba32e8d5ed9628ef/diff:/var/lib/docker/overlay2/68aa820649011e3d0d741160ef2dbc2f6b1f63a46fc21588f8cebad389771fdc/diff:/var/lib/docker/overlay2/ab4cc11b5ccd9933973a3944b4dd9d8398a86cf2c4056ab9a8bee5983a64e927/diff:/var/lib/docker/overlay2/eb1e8d20196465a23aaf7e9254b3d1874569db6bf2da9f7e0296212392aacb06/diff",
+                "MergedDir": "/var/lib/docker/overlay2/5578cdd149aa7da23a9e7698344da2b2a103e95bd7aa007eb4f985ffa4f6ee2b/merged",
+                "UpperDir": "/var/lib/docker/overlay2/5578cdd149aa7da23a9e7698344da2b2a103e95bd7aa007eb4f985ffa4f6ee2b/diff",
+                "WorkDir": "/var/lib/docker/overlay2/5578cdd149aa7da23a9e7698344da2b2a103e95bd7aa007eb4f985ffa4f6ee2b/work"
+            },
+            "Name": "overlay2"
+        },
+        "Mounts": [],
+        "Config": {
+            "Hostname": "40b2e05f4883",
+            "Domainname": "",
+            "User": "",
+            "AttachStdin": false,
+            "AttachStdout": false,
+            "AttachStderr": false,
+            "ExposedPorts": {
+                "8080/tcp": {}
+            },
+            "Tty": false,
+            "OpenStdin": false,
+            "StdinOnce": false,
+            "Env": [
+                "DATABASE_PASSWORD=dbp4ss",
+                "DATABASE_NAME=demo",
+                "DATABASE_USER=dbuser",
+                "DATABASE_HOST=172.21.0.1",
+                "DATABASE_PORT=7001",
+                "PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin",
+                "LANG=C.UTF-8",
+                "JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64",
+                "JAVA_VERSION=8u111",
+                "JAVA_DEBIAN_VERSION=8u111-b14-2~bpo8+1",
+                "CA_CERTIFICATES_JAVA_VERSION=20140324"
+            ],
+            "Cmd": null,
+            "ArgsEscaped": true,
+            "Image": "madhukargunda/spring-boot-jpa-docker-webapp",
+            "Volumes": null,
+            "WorkingDir": "",
+            "Entrypoint": [
+                "/bin/bash",
+                "/wrapper.sh"
+            ],
+            "OnBuild": null,
+            "Labels": {
+                "com.docker.compose.config-hash": "f5b2760b2b5081899bdca899fd088e50321b6a3f28b099fdd14c61ce43d1607a",
+                "com.docker.compose.container-number": "1",
+                "com.docker.compose.oneoff": "False",
+                "com.docker.compose.project": "g00glen00b",
+                "com.docker.compose.service": "spring-boot-jpa-docker-webapp",
+                "com.docker.compose.version": "1.18.0"
+            }
+        },
+        "NetworkSettings": {
+            "Bridge": "",
+            "SandboxID": "508fe3e25bb03b584b8b5f8444fb4d9f347222e5627a7c77116788a660d1b13a",
+            "HairpinMode": false,
+            "LinkLocalIPv6Address": "",
+            "LinkLocalIPv6PrefixLen": 0,
+            "Ports": {
+                "8080/tcp": [
+                    {
+                        "HostIp": "0.0.0.0",
+                        "HostPort": "8082"
+                    }
+                ]
+            },
+            "SandboxKey": "/var/run/docker/netns/508fe3e25bb0",
+            "SecondaryIPAddresses": null,
+            "SecondaryIPv6Addresses": null,
+            "EndpointID": "",
+            "Gateway": "",
+            "GlobalIPv6Address": "",
+            "GlobalIPv6PrefixLen": 0,
+            "IPAddress": "",
+            "IPPrefixLen": 0,
+            "IPv6Gateway": "",
+            "MacAddress": "",
+            "Networks": {
+                "g00glen00b_default": {
+                    "IPAMConfig": null,
+                    "Links": null,
+                    "Aliases": [
+                        "spring-boot-jpa-docker-webapp",
+                        "40b2e05f4883"
+                    ],
+                    "NetworkID": "2c7bcef18d2fc589e2cf80efa7cb46e7cf0a099ba816eb93a1730f9d4176c140",
+                    "EndpointID": "21182779c3726f7cc8abc01bbf9a15f92384c5fddc2f1838ab878d7ea21b4103",
+                    "Gateway": "172.21.0.1",
+                    "IPAddress": "172.21.0.3",
+                    "IPPrefixLen": 16,
+                    "IPv6Gateway": "",
+                    "GlobalIPv6Address": "",
+                    "GlobalIPv6PrefixLen": 0,
+                    "MacAddress": "02:42:ac:15:00:03",
+                    "DriverOpts": null
+                }
+            }
+        }
+    }
+]

@@ -1,0 +1,27 @@
+version: '3'
+
+services:        
+    
+    hsapi:
+        image: madhukargunda/spring-boot-hsapi
+        restart: always
+        #ports:
+          #  - 8085:8080
+
+    personapi:
+        image: madhukargunda/spring-boot-personapi
+        restart: always
+        #ports:
+         #   - 8086:8080
+        #depends_on:
+         #   - hsapi    
+
+    nginx:
+        image: nginx
+        volumes:
+            - ./nginx.conf:/etc/nginx/nginx.conf
+        ports:
+            - 80:80
+        restart: always
+        depends_on:
+            - personapi

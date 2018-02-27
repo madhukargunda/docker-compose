@@ -1,0 +1,53 @@
+version: '3.3'
+
+services:
+  demo-mysql:
+    image: mysql:latest
+    container_name: my_mysql
+    deploy:
+      replicas: 2
+      restart_policy:
+        condition: on-failure
+    environment:
+      - MYSQL_ROOT_PASSWORD=${DATABASE_ROOT_PASSWORD}
+      - MYSQL_DATABASE=${DATABASE_NAME}
+      - MYSQL_USER=${DATABASE_USER}
+      - MYSQL_PASSWORD=${DATABASE_PASSWORD}
+    ports:
+      - 3306:3306
+    volumes:
+      - /docker-volumes= /var/lib/mysql
+    networks:
+      - mynetwork  
+
+  spring-boot-jpa-docker-webapp:
+    image: madhukargunda/spring-boot-jpa-docker-webapp
+    container_name: web
+    deploy:
+      replicas: 5
+      restart_policy:
+        condition: on-failure
+    depends_on:
+      - demo-mysql
+    ports:
+      - 8082:8082
+    environment:
+      - SPRING_PROFILES_ACTIVE=${SPRING_ACTIVE_PROFILE}
+      - DATABASE_HOST=demo-mysql
+      - DATABASE_USER=${DATABASE_USER}
+      - DATABASE_PASSWORD=${DATABASE_PASSWORD}
+      - DATABASE_NAME=${DATABASE_NAME}
+      - DATABASE_PORT=${DATABASE_PORT}
+    configs:
+      - source: application_properties
+      - target: /usr/application-${SPRING_ACTIVE_PROFILE}.properties
+    networks:
+      - mynetwork
+
+configs:
+ application_properties:
+   file: ./application-${SPRING_ACTIVE_PROFILE}.properties      
+
+networks:
+  mynetwork:
+    driver: overlay
