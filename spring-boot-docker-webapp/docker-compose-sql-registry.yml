@@ -1,0 +1,43 @@
+version: '3.3'
+
+services:
+  demo-mysql:
+    image: mysql:latest
+    container_name: demo_mysql
+    deploy:
+      replicas: 1
+      restart_policy:
+        condition: on-failure
+    environment:
+      - MYSQL_ROOT_PASSWORD=${DATABASE_ROOT_PASSWORD:-p4SSW0rd}
+      - MYSQL_DATABASE=${DATABASE_NAME:-demo}
+      - MYSQL_USER=${DATABASE_USER:-dbuser}
+      - MYSQL_PASSWORD=${DATABASE_PASSWORD:-dbp4ss}
+    ports:
+      - 3306:3306
+    volumes:
+      - /docker-volumes= /var/lib/mysql
+    networks:
+      - mynetwork  
+
+  eureka-registry:
+    image: madhukargunda/eureka-registry:1.0
+    container_name: eureka-registry
+    deploy:
+      replicas: 1
+      restart_policy:
+        condition: on-failure
+    depends_on:
+      - demo-mysql
+    ports:
+      - 8761:8761
+    environment:
+      - SPRINGBOOT_APP_NAME=${EUREKA_APP_NAME:-eureka-registry}
+      - EUREKA_REGISTRY_HOST=${EUREKA_REGISTRY_HOST:-eureka-registry}
+      - EUREKA_REGISTRY_PORT=${EUREKA_REGISTRY_PORT:-8761}
+    networks:
+      - mynetwork       
+
+networks:
+  mynetwork:
+    driver: overlay

@@ -5,7 +5,7 @@ services:
     image: mysql:latest
     container_name: my_mysql
     deploy:
-      replicas: 2
+      replicas: 1
       restart_policy:
         condition: on-failure
     environment:
@@ -21,10 +21,10 @@ services:
       - mynetwork  
 
   spring-boot-jpa-docker-webapp:
-    image: madhukargunda/spring-boot-jpa-docker-webapp
+    image: madhukargunda/spring-boot-jpa-docker-webapp:1.0
     container_name: web
     deploy:
-      replicas: 5
+      replicas: 1
       restart_policy:
         condition: on-failure
     depends_on:

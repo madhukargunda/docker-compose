@@ -3,9 +3,9 @@ version: '3.3'
 services:
   demo-mysql:
     image: mysql:latest
-    container_name: my_mysql
+    container_name: demo_mysql
     deploy:
-      replicas: 2
+      replicas: 1
       restart_policy:
         condition: on-failure
     environment:
@@ -20,15 +20,33 @@ services:
     networks:
       - mynetwork  
 
-  spring-boot-jpa-docker-webapp:
-    image: madhukargunda/spring-boot-jpa-docker-webapp
-    container_name: web
+  eureka-registry:
+    image: madhukargunda/eureka-registry:1.0
+    container_name: eureka-registry
     deploy:
-      replicas: 5
+      replicas: 1
       restart_policy:
         condition: on-failure
     depends_on:
       - demo-mysql
+    ports:
+      - 8761:8761
+    environment:
+      - SPRINGBOOT_APP_NAME=${EUREKA_APP_NAME:-eureka-registry}
+      - EUREKA_REGISTRY_HOST=${EUREKA_REGISTRY_HOST:-eureka-registry}
+      - EUREKA_REGISTRY_PORT=${EUREKA_REGISTRY_PORT:-8761}
+    networks:
+      - mynetwork   
+
+  spring-boot-jpa-docker-webapp:
+    image: madhukargunda/spring-boot-jpa-docker-webapp:1.1
+    container_name: web
+    deploy:
+      replicas: 1
+      restart_policy:
+        condition: on-failure
+    depends_on:
+      - eureka-registry
     ports:
       - 8082:8082
     environment:
@@ -37,10 +55,11 @@ services:
       - DATABASE_USER=${DATABASE_USER:-dbuser}
       - DATABASE_PASSWORD=${DATABASE_PASSWORD:-dbp4ss}
       - DATABASE_NAME=${DATABASE_NAME:-demo}
-      - DATABASE_PORT=${DATABASE_PORT:-3306}    
+      - DATABASE_PORT=${DATABASE_PORT:-3306} 
+      - EUREKA_REGISTRY_HOST=${EUREKA_REGISTRY_HOST:-eureka-registry}
+      - EUREKA_REGISTRY_PORT=${EUREKA_REGISTRY_PORT:-8761} 
     networks:
       - mynetwork
-
 
   visualizer:
     image: dockersamples/visualizer:stable

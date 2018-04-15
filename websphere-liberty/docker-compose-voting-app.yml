@@ -1,0 +1,59 @@
+version: '3.3'
+
+services:
+  voting-app:
+    image: kavisuresh/examplevotingapp_voting-app
+    container_name: voting-app
+    ports:
+      - 5000:9080
+    networks:
+      - voteapp  
+
+  result-app:
+    image: kavisuresh/examplevotingapp_result-app
+    container_name: result-app
+    ports:
+      - 5001:9080
+    networks:
+      - voteapp   
+
+  worker:
+    image: kavisuresh/examplevotingapp_worker
+    container_name: worker
+    networks:
+      - voteapp   
+
+  redis:
+    image: redis
+    container_name: redis
+    ports:
+      - 6379:6379
+    networks:
+      - voteapp 
+  db:
+    image: postgress:9.4
+    container_name: db
+    networks:
+      - voteapp
+    volumes:
+      - db-data:/var/lib/postgresql/data 
+
+  visualizer:
+    image: dockersamples/visualizer:stable
+    ports:
+      - "7001:8080"
+    volumes:
+      - "/var/run/docker.sock:/var/run/docker.sock"
+    deploy:
+      placement:
+        constraints: [node.role == manager]
+    networks:
+      - voteapp    
+
+networks:
+  voteapp:
+
+volumes:
+  voteapp:
+    
+
